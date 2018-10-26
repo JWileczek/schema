@@ -135,7 +135,6 @@ var schema = {
     bounding_box: require('./partial/boundingbox'),
     polygon: {
       type: "object",
-      index: "no",
       properties: {
         coordinates: {
           type: "float",
