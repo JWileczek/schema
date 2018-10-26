@@ -133,7 +133,26 @@ var schema = {
     center_point: require('./partial/centroid'),
     shape: require('./partial/shape'),
     bounding_box: require('./partial/boundingbox'),
-
+    polygon: {
+      type: "object",
+      index: "no",
+      properties: {
+        coordinates: {
+          type: "float",
+          index: "no"
+        },
+        type: {
+          type: "text",
+          fields: {
+            keyword: {
+              type: "keyword",
+              ignore_above: 256
+            }
+          },
+          index: "no"
+        }
+      }
+    },
     // meta info
     source_id: literal,
     category: literal,
@@ -151,7 +170,7 @@ var schema = {
           format: "disabled"
         }
       }
-    },
+    }
   },{
     phrase: {
       path_match: 'phrase.*',
